@@ -12,12 +12,12 @@
 
 ## ✨ Features
 
-- 🔐 **Authentication** – Login, Sign Up, Logout with Firebase Auth  
-- 🧠 **Projects & Boards** – Create multiple project boards  
-- 🗃️ **Kanban View** – Tasks organized into columns: To Do, In Progress, Done  
-- 📝 **Task Management** – Add, edit, delete tasks  
-- 🎛️ **Custom Columns** – Rename or add new columns dynamically  
-- 🎨 **Modern UI** – Built with MUI & Tailwind for responsive and clean UX  
+- 🔐 **Authentication** – Login, Sign Up, Logout with Firebase Auth
+- 🧠 **Projects & Boards** – Create multiple project boards
+- 🗃️ **Kanban View** – Tasks organized into columns: To Do, In Progress, Done
+- 📝 **Task Management** – Add, edit, delete tasks
+- 🎛️ **Custom Columns** – Rename or add new columns dynamically
+- 🎨 **Modern UI** – Built with MUI & Tailwind for responsive and clean UX
 - ✅ **Testing & CI/CD** – Integrated Playwright tests and GitHub Actions
 
 ## 📸 Preview
@@ -31,3 +31,4 @@
 ```bash
 git clone https://github.com/your-username/taskboard.git
 cd taskboard
+```
