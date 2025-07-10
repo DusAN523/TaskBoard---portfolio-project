@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { TextField, Button, Typography, Card, CardContent } from "@mui/material";
+import {
+  TextField,
+  Button,
+  Typography,
+  Card,
+  CardContent,
+} from "@mui/material";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 
@@ -48,4 +54,3 @@ export const SignUp = () => {
     </div>
   );
 };
-

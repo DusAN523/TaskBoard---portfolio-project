@@ -3,7 +3,7 @@ import { useAuth } from "./components/AuthContext";
 import { Navbar } from "./components/NavBar";
 import { SignIn } from "./pages/SignIn";
 import { SignUp } from "./pages/SignUp";
-import Box from '@mui/material/Box';
+import Box from "@mui/material/Box";
 import { HomePage } from "./pages/HomePage";
 import { Typography } from "@mui/material";
 
