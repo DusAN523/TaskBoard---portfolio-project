@@ -1,0 +1,21 @@
+{
+  "home": {
+    "title": "Efektívne spravujte<br />svoje úlohy",
+    "description": "TaskBoard je aplikácia na správu úloh postavená na Firebase, React, TypeScript, Redux a Tailwind CSS.",
+    "buttonText": "Začať"
+  },
+  "navbar": {
+    "signIn": "Prihlásiť sa",
+    "signUp": "Registrovať sa",
+    "language": {
+      "title":"Jazyk",
+      "en": "Angličtina",
+      "sk": "Slovenčina"
+    },
+    "theme": {
+      "title": "Téma",
+      "light": "Svetlá",
+      "dark": "Tmavá"
+    }
+  }
+}

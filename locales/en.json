@@ -1,0 +1,21 @@
+{
+  "home": {
+    "title": "Manage your<br />tasks efficiently",
+    "description": "TaskBoard is a task management app built with Firebase, React, TypeScript, Redux, and Tailwind CSS.",
+    "buttonText": "Get Started"
+  },
+  "navbar": {
+    "signIn": "Sign in",
+    "signUp": "Sign Up",
+    "language": {
+      "title":"Language",
+      "en": "English",
+      "sk": "Slovak"
+    },
+    "theme": {
+      "title": "Theme",
+      "light": "Light",
+      "dark": "Dark"
+    }
+  }
+}
