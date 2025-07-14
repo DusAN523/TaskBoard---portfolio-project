@@ -1,7 +1,7 @@
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import { useTranslation } from "react-i18next";
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import { useTranslation } from 'react-i18next';
 
 export const HomePage = () => {
   const { t } = useTranslation();
@@ -13,19 +13,19 @@ export const HomePage = () => {
           variant="h3"
           component="h1"
           className="font-bold mb-4"
-          dangerouslySetInnerHTML={{ __html: t("home.title") }}
+          dangerouslySetInnerHTML={{ __html: t('home.title') }}
         />
         <Typography variant="body1" className="mb-6 text-lg text-gray-600">
-          {t("home.description")}
+          {t('home.description')}
         </Typography>
         <Button variant="contained" color="primary" size="large" href="/signup">
-          {t("home.buttonText")}
+          {t('home.buttonText')}
         </Button>
       </Box>
       <Box className="flex-1 flex justify-center">
         <img
-          src="/images/task-board.png"
-          alt={t("home.description")}
+          src={process.env.PUBLIC_URL + '/images/task-board.png'}
+          alt={t('home.description')}
           className="w-72 h-72 object-contain"
           loading="lazy"
         />
