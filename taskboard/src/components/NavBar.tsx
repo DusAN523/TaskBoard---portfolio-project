@@ -1,46 +1,36 @@
-import React, { useState, useRef, useEffect } from "react";
-import {
-  AppBar,
-  Toolbar,
-  Button,
-  Typography,
-  Box,
-  Avatar,
-} from "@mui/material";
-import CheckBoxIcon from "@mui/icons-material/CheckBox";
-import LanguageIcon from "@mui/icons-material/Language";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import React, { useState, useRef, useEffect } from 'react';
+import { AppBar, Toolbar, Button, Typography, Box, Avatar } from '@mui/material';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import LanguageIcon from '@mui/icons-material/Language';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
-type ThemeMode = "light" | "dark";
+type ThemeMode = 'light' | 'dark';
 
 export const Navbar = () => {
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
-  const userInitials = "JD";
+  const userInitials = 'JD';
 
   const [mainMenuOpen, setMainMenuOpen] = useState(false);
   const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
   const [themeMenuOpen, setThemeMenuOpen] = useState(false);
-  const [theme, setTheme] = useState<ThemeMode>("light");
+  const [theme, setTheme] = useState<ThemeMode>('light');
 
   const avatarRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (
-        avatarRef.current &&
-        !avatarRef.current.contains(event.target as Node)
-      ) {
+      if (avatarRef.current && !avatarRef.current.contains(event.target as Node)) {
         setMainMenuOpen(false);
         setLanguageMenuOpen(false);
         setThemeMenuOpen(false);
       }
     }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   const toggleMainMenu = () => {
@@ -69,7 +59,7 @@ export const Navbar = () => {
 
   const handleThemeChange = (mode: ThemeMode) => {
     setTheme(mode);
-    document.body.setAttribute("data-theme", mode);
+    document.body.setAttribute('data-theme', mode);
     setMainMenuOpen(false);
     setThemeMenuOpen(false);
   };
@@ -84,39 +74,36 @@ export const Navbar = () => {
       <Toolbar className="flex justify-between">
         <Box className="flex items-center gap-2">
           <CheckBoxIcon color="primary" />
-          <Typography
-            variant="h6"
-            className="font-bold text-gray-800 select-none"
-          >
+          <Typography variant="h6" className="font-bold text-gray-800 select-none">
             TaskBoard
           </Typography>
         </Box>
         <Box className="flex items-center gap-2 relative" ref={avatarRef}>
           <Button
             color="inherit"
-            onClick={() => navigate("/signin")}
+            onClick={() => navigate('/signin')}
             className="capitalize text-gray-700"
           >
-            {t("navbar.signIn")}
+            {t('navbar.signIn')}
           </Button>
           <Button
             variant="contained"
             color="primary"
-            onClick={() => navigate("/signup")}
+            onClick={() => navigate('/signup')}
             className="capitalize"
           >
-            {t("navbar.signUp")}
+            {t('navbar.signUp')}
           </Button>
 
           <Avatar
             sx={{
               width: 32,
               height: 32,
-              bgcolor: "#e0e7ef",
-              color: "#374151",
+              bgcolor: '#e0e7ef',
+              color: '#374151',
               fontWeight: 600,
               fontSize: 16,
-              cursor: "pointer",
+              cursor: 'pointer',
             }}
             onClick={toggleMainMenu}
           >
@@ -124,79 +111,70 @@ export const Navbar = () => {
           </Avatar>
 
           {mainMenuOpen && (
-            <div
-              className="absolute right-10 mt-10 w-52 bg-white border border-gray-300 rounded-md shadow-lg z-50"
-              onClick={(e) => e.stopPropagation()}
-            >
+            <div className="absolute right-10 mt-10 w-52 bg-white border border-gray-300 rounded-md shadow-lg z-50">
               <button
                 onClick={openLanguageMenu}
                 className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 w-full text-left"
               >
                 <LanguageIcon fontSize="small" />
-                <span>{t("navbar.language.title")}</span>
+                <span>{t('navbar.language.title')}</span>
               </button>
               <button
                 onClick={openThemeMenu}
                 className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 w-full text-left"
               >
-                {theme === "light" ? (
+                {theme === 'light' ? (
                   <Brightness7Icon fontSize="small" />
                 ) : (
                   <Brightness4Icon fontSize="small" />
                 )}
-                <span>{t("navbar.theme.title")}</span>
+                <span>{t('navbar.theme.title')}</span>
               </button>
             </div>
           )}
 
           {languageMenuOpen && (
-            <div
-              className="absolute right-40 top-10 w-40 bg-white border border-gray-300 rounded-md shadow-lg z-50"
-              onClick={(e) => e.stopPropagation()}
-            >
+            <div className="absolute right-40 top-10 w-40 bg-white border border-gray-300 rounded-md shadow-lg z-50">
               <button
-                onClick={() => handleLanguageChange("en")}
+                onClick={() => handleLanguageChange('en')}
                 className={`flex items-center gap-2 px-4 py-2 w-full text-left hover:bg-gray-100 ${
-                  i18n.language === "en" ? "bg-gray-200" : ""
+                  i18n.language === 'en' ? 'bg-gray-200' : ''
                 }`}
               >
                 <span className="text-lg">🇬🇧</span>
-                <span>{t("navbar.language.en")}</span>
+                <span>{t('navbar.language.en')}</span>
               </button>
               <button
-                onClick={() => handleLanguageChange("sk")}
+                onClick={() => handleLanguageChange('sk')}
                 className={`flex items-center gap-2 px-4 py-2 w-full text-left hover:bg-gray-100 ${
-                  i18n.language === "sk" ? "bg-gray-200" : ""
+                  i18n.language === 'sk' ? 'bg-gray-200' : ''
                 }`}
               >
                 <span className="text-lg">🇸🇰</span>
-                <span>{t("navbar.language.sk")}</span>
+                <span>{t('navbar.language.sk')}</span>
               </button>
             </div>
           )}
 
           {themeMenuOpen && (
-            <div
-              className="absolute right-40 top-20 w-40 bg-white border border-gray-300 rounded-md shadow-lg z-50"
-              onClick={(e) => e.stopPropagation()}
-            >
+            <div className="absolute right-40 top-20 w-40 bg-white border border-gray-300 rounded-md shadow-lg z-50">
               <button
-                onClick={() => handleThemeChange("light")}
+                onClick={() => handleThemeChange('light')}
                 className={`flex items-center gap-2 px-4 py-2 w-full text-left hover:bg-gray-100 ${
-                  theme === "light" ? "bg-gray-200" : ""
+                  theme === 'light' ? 'bg-gray-200' : ''
                 }`}
               >
                 <Brightness7Icon fontSize="small" />
-                <span>{t("navbar.theme.light")}</span>
+                <span>{t('navbar.theme.light')}</span>
               </button>
               <button
-                onClick={() => handleThemeChange("dark")}
+                onClick={() => handleThemeChange('dark')}
                 className={`flex items-center gap-2 px-4 py-2 w-full text-left hover:bg-gray-100 ${
-                  theme === "dark" ? "bg-gray-200" : ""
+                  theme === 'dark' ? 'bg-gray-200' : ''
                 }`}
               >
                 <Brightness4Icon fontSize="small" />
-                <span>{t("navbar.theme.dark")}</span>
+                <span>{t('navbar.theme.dark')}</span>
               </button>
             </div>
           )}
